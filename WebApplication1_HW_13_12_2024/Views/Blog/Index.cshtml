@@ -1,0 +1,18 @@
+﻿@model List<News>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var theme = ViewBag.Theme as string;
+}
+
+<div class="@theme">
+    <h1>Новости</h1>
+    @foreach (var news in Model)
+    {
+        <div class="news-item">
+            <h2>@news.Title</h2>
+            <p>@news.Content</p>
+            <small>Опубликовано: @news.PublishedDate.ToShortDateString()</small>
+        </div>
+    }
+    <a href="/Blog/Settings">Настройки чтения</a>
+</div>

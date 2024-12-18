@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentTheme = ViewBag.Theme as string;
+}
+
+<h1>Настройки чтения</h1>
+<form method="post" action="/Blog/SaveSettings">
+    <label>
+        <input type="radio" name="theme" value="light" @(currentTheme == "light" ? "checked" : "") />
+        Светлая тема
+    </label>
+    <br />
+    <label>
+        <input type="radio" name="theme" value="dark" @(currentTheme == "dark" ? "checked" : "") />
+        Темная тема
+    </label>
+    <br />
+    <button type="submit">Сохранить настройки</button>
+</form>
+<a href="/Blog">Назад к новостям</a>
